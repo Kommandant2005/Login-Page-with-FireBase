@@ -10,7 +10,7 @@
 
 const firebaseConfig = {
     apiKey: "AIzaSyBGeP7HOdgKgw7Z6KcCx5ecmkiwCskHAeM",
-    authDomain: "login-form-2bb9b.firebaseapp.com",
+    authDomain: "login-page-with-fire-base.vercel.app",
     projectId: "login-form-2bb9b",
     storageBucket: "login-form-2bb9b.firebasestorage.app",
     messagingSenderId: "1075201719796",
