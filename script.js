@@ -1,3 +1,4 @@
+import { auth, sendPasswordResetEmail } from './firebase.js';
 const signUpButton=document.getElementById('signUpButton');
 const signInButton=document.getElementById('signInButton');
 const signInForm=document.getElementById('signIn');
@@ -11,10 +12,6 @@ signInButton.addEventListener('click', function(){
     signInForm.style.display="block";
     signUpForm.style.display="none";
 })
-
-
-// script.js
-import { auth, sendPasswordResetEmail } from './firebase.js';
 
 document.getElementById('recover-form').addEventListener('submit', function(event) {
   event.preventDefault();
