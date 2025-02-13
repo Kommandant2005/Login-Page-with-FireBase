@@ -12,19 +12,23 @@ signInButton.addEventListener('click', function(){
     signUpForm.style.display="none";
 })
 
-document.getElementById('recoverPassword').addEventListener('click', function(event) {
+
+// script.js
+import { auth, sendPasswordResetEmail } from './firebase.js';
+
+document.getElementById('recover-form').addEventListener('submit', function(event) {
   event.preventDefault();
 
-  const email = prompt("Enter your email address:");
-  const message = document.getElementById('signInMessage');
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message');
 
-  if (users[email]) {
-    message.textContent = `Your password is: ${users[email]}`;
-    message.style.color = 'green';
-    message.style.display = 'block';
-  } else {
-    message.textContent = 'Email not found.';
-    message.style.color = 'red';
-    message.style.display = 'block';
-  }
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      message.textContent = 'Password reset email sent! Check your inbox.';
+      message.style.color = 'green';
+    })
+    .catch((error) => {
+      message.textContent = `Error: ${error.message}`;
+      message.style.color = 'red';
+    });
 });
